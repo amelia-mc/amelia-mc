@@ -51,10 +51,10 @@ I enjoy transforming complex problems into elegant technical solutions.
 
 ## Skills
 <div style="text-decoration: none;"  id="badges">
-  <a  href="https://www.linkedin.com/in/joshrlehman/">
+  <a  href="https://www.linkedin.com/in/amelia-mcclurkin-237774396/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
-  <a style="text-decoration: none;" href="https://github.com/joshl26">
+  <a style="text-decoration: none;" href="https://github.com/amelia-mc">
     <img src="https://img.shields.io/badge/GitHub-darkgrey?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge"/>
   </a>
 </div>
