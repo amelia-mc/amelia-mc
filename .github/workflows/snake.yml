@@ -1,61 +1,32 @@
-<!-- 🐍 Gradient Snake Background -->
-<div align="center" style="
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-  height: 350px;
-  background: linear-gradient(270deg, black, white, black);
-  background-size: 600% 600%;
-  animation: gradientShift 10s ease infinite;
-">
+name: Generate contribution snake
 
-  <img src="https://raw.githubusercontent.com/amelia-mc/amelia-mc/output/github-contribution-grid-snake-dark.svg"
-       alt="snake animation"
-       style="width: 100%; height: 100%; opacity: 0.3; position: absolute; top: 0; left: 0;"/>
-  <h2 style="color: white; position: relative; z-index: 1; padding-top: 140px;">
-    🐍 Watch My Contribution Snake
-  </h2>
-</div>
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
 
-<style>
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-</style>
+permissions:
+  contents: write
 
-<!-- 🐍 Snake Background (Black Theme) -->
-<div align="center" style="
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  height: 350px;
-  background-color: #000000;
-  box-shadow: 0 0 25px rgba(255,255,255,0.05);
-">
-  <img src="https://raw.githubusercontent.com/amelia-mc/amelia-mc/output/github-contribution-grid-snake-dark.svg"
-       alt="snake animation"
-       style="
-         width: 100%;
-         height: 100%;
-         opacity: 0.35;
-         position: absolute;
-         top: 0;
-         left: 0;
-       "/>
-  <div style="
-        position: relative;
-        z-index: 1;
-        color: white;
-        padding-top: 130px;
-        font-family: 'Segoe UI', sans-serif;
-      ">
-    <h2 style="font-size: 1.8em; font-weight: 600; letter-spacing: 1px;">
-      🐍 Watch My Contribution Snake
-    </h2>
-    <p style="opacity: 0.9; font-size: 1.1em;">
-      My commits come alive — crawling through time and code ⚡
-    </p>
-  </div>
-</div>
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create output dir
+        run: mkdir -p output
+
+      - name: Generate snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            output/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      - name: Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/
+          git diff --staged --quiet || (git commit -m "Update contribution snake" && git push)
