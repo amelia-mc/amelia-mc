@@ -76,7 +76,7 @@ I enjoy transforming complex problems into elegant technical solutions.
 </div>
 
 <br/>
-<img src="https://raw.githubusercontent.com/amelia-mc/amelia-mc/output/github-contribution-grid-snake-dark.svg" width="100%"/>
+<img src="https://raw.githubusercontent.com/amelia-mc/amelia-mc/main/output/github-contribution-grid-snake-dark.svg" width="100%"/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 
