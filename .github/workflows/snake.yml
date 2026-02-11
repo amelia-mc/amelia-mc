@@ -18,11 +18,11 @@ jobs:
         run: mkdir -p output
 
       - name: Generate snake
-        uses: Platane/snk/svg-only@v3
+        uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            output/github-contribution-grid-snake-dark.svg?color_snake=%232563eb&color_dots=%23ebedf0,%239be9a8,%2340c463,%2330a14e,%23216e39
+            output/github-contribution-grid-snake-dark.svg?palette=github-light&color_snake=%237c3aed
 
       - name: Push
         run: |
